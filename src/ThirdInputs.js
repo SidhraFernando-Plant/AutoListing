@@ -27,7 +27,7 @@ export default function ThirdInputs(props) {
             type="text"
             className="form-control"
             name="minReqs"
-            rows="2"
+            rows="9"
             value={inputs.minReqs}
             onChange={handleChange}
             placeholder="Minimum requirements"
@@ -37,13 +37,22 @@ export default function ThirdInputs(props) {
             type="text"
             className="form-control"
             name="recReqs"
-            rows="2"
+            rows="9"
             value={inputs.recReqs}
             onChange={handleChange}
             placeholder="Recommended requirements"
           />
 
-          <div className="d-flex justify-content-center mt-2">
+         
+        </form>
+        <div className="d-flex justify-content-center mt-2">
+          <a href="/second-inputs">
+                <button
+                className="btn btn-outline-info mr-2"
+                >
+                ← Back
+                </button>
+            </a>
             <button
               data-testid="test-btn"
               className="btn btn-info"
@@ -52,7 +61,6 @@ export default function ThirdInputs(props) {
               Next →
             </button>
           </div>
-        </form>
       </div>
     );
 }

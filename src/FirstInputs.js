@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 
 export default function FirstInputs(props) {
-    const [inputs, setInputs] = useState({ name: "", description: "", youtube: ''});
+    const [inputs, setInputs] = useState({ name: "", description: "", youtube: '', openCritic: ""});
     const handleChange = (e) => {
         var name = e.target.name;
         var value = e.target.value;
@@ -21,7 +21,7 @@ export default function FirstInputs(props) {
 
   const handleNext = (e) => {
     e.preventDefault();
-    props.handleSubmit(inputs.name, inputs.youtube, inputs.description);
+    props.handleSubmit(inputs.name, inputs.youtube, inputs.description, inputs.openCritic);
   }
 
     return (
@@ -36,21 +36,26 @@ export default function FirstInputs(props) {
             onChange={handleChange}
             placeholder="Game name"
           />
-          <label>Youtube link</label>
-          <input
+          <label>Youtube embed</label>
+          <textarea
             type="text"
             className="form-control"
             name="youtube"
             value={inputs.youtube}
             onChange={handleChange}
             placeholder="Youtube link"
+            rows="7"
           />
+            <label className="mt-2">
+                Open Critic Number
+            </label>
+            <input type="number" className="form-control" name="openCritic" value={inputs.openCritic} onChange={handleChange} placeholder="OpenCritic number"/>
           <label className="mt-2">Game description</label>
           <textarea
             type="text"
             className="form-control"
             name="description"
-            rows="2"
+            rows="10"
             value={inputs.description}
             onChange={handleChange}
             placeholder="Description"
@@ -63,6 +68,8 @@ export default function FirstInputs(props) {
             >
               Next →
             </button>
+            
+            
           </div>
         </form>
         <p>

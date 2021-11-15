@@ -9,6 +9,7 @@ import { Routes ,Route, Router } from 'react-router-dom';
 import SecondInputs from './SecondInputs';
 import ThirdInputs from './ThirdInputs';
 import Success from './Success';
+import Header from './Header';
 
 function App() {
   const [inputs, setInputs] = useState({ name: "", description: "", youtube: "", featuresNum: '0', features: [], minReqs: "", recReqs: ""});
@@ -48,12 +49,13 @@ function App() {
     
   }
 
-  const firstSubmit = (inputName, inputYoutube, inputDescription) => {
+  const firstSubmit = (inputName, inputYoutube, inputDescription, inputOpenCritic) => {
     inputs.name = inputName;
     inputs.youtube = inputYoutube;
     inputs.description = inputDescription;
     localStorage.setItem("nameOfGame", inputName);
     localStorage.setItem("gameYoutubeLink", inputYoutube);
+    localStorage.setItem("gameOpenCritic", inputOpenCritic);
     localStorage.setItem("descriptionOfGame", inputDescription);
     window.location.href = "/second-inputs";
     
@@ -74,6 +76,7 @@ function App() {
     var allInputs = { name: localStorage.getItem("nameOfGame"), 
     description: localStorage.getItem("descriptionOfGame"), 
     youtube: localStorage.getItem("gameYoutubeLink"), 
+    openCritic: localStorage.getItem("gameOpenCritic"), 
     features: JSON.parse(localStorage.getItem("featuresOfGame")),
     minReqs: JSON.parse(localStorage.getItem("minReqsOfGame")),
     recReqs: JSON.parse(localStorage.getItem("recReqsOfGame")),
@@ -94,8 +97,8 @@ function App() {
 
   return (
     <main>
-
           <div>
+            <Header/>
             <Routes>
               <Route path='/third-inputs' element={<ThirdInputs handleSubmit={thirdSubmit}/>} />
               <Route path='/second-inputs' element={<SecondInputs handleSubmit={secondSubmit}/>} />
@@ -103,44 +106,6 @@ function App() {
               <Route path='/' element={<FirstInputs handleSubmit={firstSubmit}/>} />
             </Routes>
           </div>
-
-      
-      {/* <FirstInputs/> */}
-            {/* <form>
-                  <label>
-                    Game name
-                   </label>
-                    <input type="text" className="form-control" name="name" value={inputs.name} onChange={handleChange} placeholder="Game name"/>
-                    <label className="mt-2">
-                      Game description
-                    </label>
-                    <textarea type="text" className="form-control" name="description" rows="2" value={inputs.description} onChange={handleChange} placeholder="Description"/>
-                    <label className="mt-2">
-                      Number of key features
-                    </label>
-                    <input type="number" className="form-control" name="featuresNum" value={inputs.featuresNum} onChange={handleChange} placeholder="Number of features"/>
-                    
-                    <label className="mt-2">
-                      Features
-                    </label>
-                    {parseInt(inputs.featuresNum)>0
-                    ?
-                      <div>
-                      {inputs.features.map((feature, index) => (
-                          <Feature key={index} handleChange={featureChange} idx={index}/>
-                        ))}
-                      </div>
-                    :
-                      <p className="text-muted">To start adding features, increase the number of key features.</p>
-                    }                    
-                <div className="d-flex justify-content-center mt-2">
-                    <button data-testid="test-btn" className="btn btn-info" onClick={handleSubmit}>  Generate</button>
-                </div>
-                
-            </form>
-            {generatedTxt!=='' &&
-            <textarea type="text" className="form-control" name="description" rows="5" value={generatedTxt} onChange={handleChange} placeholder="Description"/>
-            } */}
       </main>
   );
 }

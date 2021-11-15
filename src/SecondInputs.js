@@ -61,7 +61,16 @@ export default function SecondInputs(props) {
                       <p className="text-muted">To start adding features, increase the number of key features.</p>
                     }    
           
-          <div className="d-flex justify-content-center mt-2">
+          
+        </form>
+        <div className="d-flex justify-content-center mt-3">
+          <a href="/">
+                <button
+                className="btn btn-outline-info mr-2"
+                >
+                ← Back
+                </button>
+            </a>
             <button
               data-testid="test-btn"
               className="btn btn-info"
@@ -70,7 +79,6 @@ export default function SecondInputs(props) {
               Next →
             </button>
           </div>
-        </form>
       </div>
     )
 }

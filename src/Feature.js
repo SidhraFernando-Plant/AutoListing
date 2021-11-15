@@ -11,7 +11,7 @@ export default function Feature(props) {
 
     return (
         <div className="mb-1">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" onChange={inputChange}></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" onChange={inputChange}></textarea>
         </div>
     )
 }

@@ -32,11 +32,7 @@ export function foo(inputs) {
                 width="468" height="92"><span class="redactor-invisible-space"></span><br>
         </p>
         <p>
-            <iframe width="500" height="280" src="${inputs.youtube}" title="YouTube video player"
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen=""><span id="selection-marker-1" class="redactor-selection-marker"></span><span
-                id="selection-marker-1" class="redactor-selection-marker"></span>
-            </iframe>
+            ${inputs.youtube}
         </p>
 
         <p>
@@ -48,8 +44,6 @@ export function foo(inputs) {
         <p><span style="font-size: 18px;">${inputs.description}</span>
         </p><span style="font-size: 18px;"><br></span>
         
-        <p><br>
-        </p>
         
         <div>
             <h2><span style="font-size: 24px;"><span style="color: rgb(255, 255, 255);">Key features</span></span></h2>
@@ -59,6 +53,12 @@ export function foo(inputs) {
                 </ul>
                 <div>
             </div>
+            <br>
+		    <h3>Critic Rating</h3>
+		    <iframe style="border-radius: 5px; background-image: linear-gradient(to right, #2a2a2a, #1e1e1e);" src="https://opencritic.com/game/${inputs.openCritic}/score?theme=dark" frameborder="0" height="102">
+		    </iframe><br>
+		    <span style="color: rgb(84, 141, 212);"><br>
+		    </span>
             <div>
                 <div style="background:#111014; padding: 12px 10px 5px 20px; border-radius:10px;">
                     <p><span style="font-size: 24px;"><strong>System requirements:</strong></span>
