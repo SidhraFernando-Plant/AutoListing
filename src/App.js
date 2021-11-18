@@ -68,11 +68,12 @@ function App() {
 
   }
 
-  const thirdSubmit = (inputMinReqs, inputReqRecs) => {
+  const thirdSubmit = (inputMinReqs, inputReqRecs, inputKeyType) => {
     var inputMinReqs = inputMinReqs.split("\n");
     var inputReqRecs = inputReqRecs.split("\n");
     localStorage.setItem("minReqsOfGame", JSON.stringify(inputMinReqs));
     localStorage.setItem("recReqsOfGame", JSON.stringify(inputReqRecs));
+    localStorage.setItem("gameKeyType", inputKeyType);
     var allInputs = { name: localStorage.getItem("nameOfGame"), 
     description: localStorage.getItem("descriptionOfGame"), 
     youtube: localStorage.getItem("gameYoutubeLink"), 
@@ -80,6 +81,7 @@ function App() {
     features: JSON.parse(localStorage.getItem("featuresOfGame")),
     minReqs: JSON.parse(localStorage.getItem("minReqsOfGame")),
     recReqs: JSON.parse(localStorage.getItem("recReqsOfGame")),
+    keyType: localStorage.getItem("gameKeyType"),
   }
     var finalStr = foo(allInputs);
     localStorage.setItem("finalGameText", finalStr);

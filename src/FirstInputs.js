@@ -36,7 +36,7 @@ export default function FirstInputs(props) {
             onChange={handleChange}
             placeholder="Game name"
           />
-          <label>Youtube embed</label>
+          <label className="mt-2">Youtube embed</label>
           <textarea
             type="text"
             className="form-control"

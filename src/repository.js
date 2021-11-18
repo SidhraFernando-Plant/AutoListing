@@ -21,6 +21,18 @@ export function foo(inputs) {
         else {
             minRequirementsCode = 'N/A';
         }
+        var imageLink = '';
+        if(inputs.keyType==='origin') {
+            imageLink ="https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/product/44160194/306457095/162134564661413991652/OriginGames_Delivery_png";
+
+        }
+        else if(inputs.keyType==='gog') {
+            imageLink = "https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/product/44160194/305850934/1622291733793-196836020/GOG_COM_GAMES_Delivery_png";
+        }
+        else if(inputs.keyType==='steam') {
+            imageLink = "https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/product/44160194/305844974/1621338183808-1285240008/STEAM_Delivery_png";
+
+        }
         
         var CODE_TEMPLATE = `<p><span style="font-size: 28px;"><span style="color: rgb(255, 255, 255);"><strong>
         ${inputs.name}
@@ -28,7 +40,7 @@ export function foo(inputs) {
         </p>
 
         <p><span style="font-size: 28px;"><span style="color: rgb(255, 255, 255);"><strong></strong></span></span><img
-                src="https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/product/44160194/350616155/1621345090175192324972/Battle_netGames_Delivery_png"
+                src=${imageLink}
                 width="468" height="92"><span class="redactor-invisible-space"></span><br>
         </p>
         <p>
