@@ -56,7 +56,7 @@ function App() {
     localStorage.setItem("nameOfGame", inputName);
     localStorage.setItem("gameYoutubeLink", inputYoutube);
     localStorage.setItem("gameOpenCritic", inputOpenCritic);
-    localStorage.setItem("descriptionOfGame", inputDescription);
+    localStorage.setItem("descriptionOfGame", JSON.stringify(inputDescription));
     window.location.href = "/second-inputs";
     
   }
@@ -75,7 +75,7 @@ function App() {
     localStorage.setItem("recReqsOfGame", JSON.stringify(inputReqRecs));
     localStorage.setItem("gameKeyType", inputKeyType);
     var allInputs = { name: localStorage.getItem("nameOfGame"), 
-    description: localStorage.getItem("descriptionOfGame"), 
+    description: JSON.parse(localStorage.getItem("descriptionOfGame")), 
     youtube: localStorage.getItem("gameYoutubeLink"), 
     openCritic: localStorage.getItem("gameOpenCritic"), 
     features: JSON.parse(localStorage.getItem("featuresOfGame")),

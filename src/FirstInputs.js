@@ -21,7 +21,8 @@ export default function FirstInputs(props) {
 
   const handleNext = (e) => {
     e.preventDefault();
-    props.handleSubmit(inputs.name, inputs.youtube, inputs.description, inputs.openCritic);
+    var splitDescription = inputs.description.split("\n");
+    props.handleSubmit(inputs.name, inputs.youtube, splitDescription, inputs.openCritic);
   }
 
     return (

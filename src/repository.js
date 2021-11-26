@@ -1,25 +1,32 @@
 export function foo(inputs) {
-        var featuresCode = '';
-        for(var i=0; i<inputs.features.length; i++) {
-            featuresCode += `<li>${inputs.features[i]}</li>\n`;
+        var descCode = '';
+        if(inputs.description!==null&&inputs.description.length!==0) {
+            for(var i=0; i<inputs.description.length; i++) {
+                    descCode += `<p>${inputs.description[i]}</p>\n`;
+                
+            }
         }
         var minRequirementsCode = '';
         if(inputs.minReqs!==null&&inputs.minReqs.length!==0) {
             for(var j=0; j<inputs.minReqs.length; j++) {
-                minRequirementsCode += `<li>${inputs.minReqs[j]}</li>\n`;
+                if(inputs.minReqs[j]!=="") {
+                    minRequirementsCode += `<li>${inputs.minReqs[j]}</li>\n`;
+                }
+                else {
+                    minRequirementsCode = 'N/A';
+                }
             }
-        }
-        else {
-            minRequirementsCode = 'N/A';
         }
         var recRequirementsCode = '';
         if(inputs.recReqs!==null&&inputs.recReqs.length!==0) {
             for(var k=0; k<inputs.recReqs.length; k++) {
-                recRequirementsCode += `<li>${inputs.recReqs[k]}</li>\n`;
+                if(inputs.recReqs[k]!=="") {
+                    recRequirementsCode += `<li>${inputs.recReqs[k]}</li>\n`;
+                }
+                else {
+                    recRequirementsCode = 'N/A';
+                }
             }
-        }
-        else {
-            minRequirementsCode = 'N/A';
         }
         var imageLink = '';
         if(inputs.keyType==='origin') {
@@ -53,18 +60,14 @@ export function foo(inputs) {
             <strong>About ${inputs.name}</strong></span></span>
         </p>
 
-        <p><span style="font-size: 18px;">${inputs.description}</span>
+        ${descCode}
         </p><span style="font-size: 18px;"><br></span>
         
         
         <div>
-            <h2><span style="font-size: 24px;"><span style="color: rgb(255, 255, 255);">Key features</span></span></h2>
+            
             <div>
-                <ul>
-                    ${featuresCode}
-                </ul>
-                <div>
-            </div>
+                
             <br>
 		    <h3>Critic Rating</h3>
 		    <iframe style="border-radius: 5px; background-image: linear-gradient(to right, #2a2a2a, #1e1e1e);" src="https://opencritic.com/game/${inputs.openCritic}/score?theme=dark" frameborder="0" height="102">
