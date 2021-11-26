@@ -2,7 +2,12 @@ export function foo(inputs) {
         var descCode = '';
         if(inputs.description!==null&&inputs.description.length!==0) {
             for(var i=0; i<inputs.description.length; i++) {
+                if(inputs.description[i]!=="") {
                     descCode += `<p>${inputs.description[i]}</p>\n`;
+                }
+                else {
+                    descCode += `<p><br></p>\n`;
+                }
                 
             }
         }
